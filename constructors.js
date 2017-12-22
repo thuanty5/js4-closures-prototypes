@@ -8,7 +8,10 @@
 
 // Code here
 
-
+function CarFactory(make,model){
+  this.make = make;
+  this.model = model;
+}
 
 
 
@@ -27,9 +30,9 @@ function Employee(name, email, hireDate) {
 
 // Code here
 
+let bob = new Employee('Bob', 'bob@gmail.com', '01-02-98');
 
-
-
+bob;
 
 
 
@@ -42,13 +45,23 @@ function Employee(name, email, hireDate) {
 
 // Code here
 
-
+function Car(make,model,year){
+  this.make;
+  this.model;
+  this.year;
+}
 
 
   //Function Invocations Here
 
   var prius = new Car('Toyota', 'Prius', 2011);
   var mustang = new Car('Ford', 'Mustang', 2013);
+
+  Car.move = 0;
+  Car.prototype.moveCar = function(){
+    this.move += 10;
+    return this.move;
+  }
   
   //Hint, you'll need to add a move property, with a starting value of zero, and write a moveCar function which will increment the move property by 10. The move property will be added to every object that is being returned from the Car function. You'll also need to use the 'this' keyword properly in order to make sure you're invoking moveCar on the right object (prius vs mustang).
   

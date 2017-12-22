@@ -15,16 +15,14 @@ function outer() {
   another variable called 'inner'. */
   
   // Code Here
+
+  let inner = outer();
   
   //Once you do that, invoke inner.
   
   //Code Here
-  
-  
-  
-  
-  
-  
+
+  inner();
   
   
   
@@ -52,9 +50,9 @@ function outer() {
   
     //Code Here
   
+  let callJake = callFriend('Jake');
   
-  
-  
+  callJake('435-555-9248');
   
   
   
@@ -69,6 +67,13 @@ function outer() {
   properly. */
   
   //Code Here
+
+  function makeCounter(){
+    let counter = 0;
+    return function count(){
+      return ++counter;
+    }
+  }
   
   //Uncomment this once you make your function
   //   var count = makeCounter();
@@ -103,10 +108,15 @@ function outer() {
   function counterFactory(value) {
   
     // Code here.
-  
+    let count = value;
   
     return {
-
+      inc(){
+        return ++count;
+      },
+      dec(){
+        return --count;
+      }
     }
   }
   
@@ -142,10 +152,13 @@ function outer() {
     var welcomeText = 'You\'re doing awesome, keep it up ';
   
     // code message function here.
-  
-  
+    function message(){
+      return `${welcomeText}${firstname} ${lastname}.`;
+    }
+    
+
     //Uncommment this to return the value of your message function
-    //return message;
+    return message;
   
   }
   
@@ -184,9 +197,13 @@ function outer() {
     // outside our lexical scope
     return {
       // Code here.
+      publicMethod(){
+        return privateMethod();
+      }
     };
   
   })();
+
   
   
   
@@ -203,6 +220,14 @@ function outer() {
 
     return {
       // Code here
+      addToSecret(num){
+        secret += num;
+        return secret;
+      },
+      takeAwayFromSecret(num){
+        secret -= num;
+        return secret;
+      }
     }
   }
   
@@ -229,7 +254,7 @@ function outer() {
    */
   
   function timeOutCounter() {
-    for (var i = 0; i <= 5; i++) {
+    for (let i = 0; i <= 5; i++) {
       setTimeout(function() {
           console.log(i)
       }, i * 1000)
